@@ -2,365 +2,555 @@
 <html lang="en">
 
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5937MNQKK5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5937MNQKK5');
-  </script>
   <title>Unblocked SS</title>
-  <meta name="description" content="Cool site for stuff" />
-  <meta name="keywords"
-    content="games, gamez, unblocked, unblocked games, tunnel rush, run 3, run, 3, hacks, chrome dino unblocked, chrome dino, chrome dinosaur, dinosaur game, dinosaur, chrome hacks, chrome dino hacks, chrome dinosaur hacks, chrome dino game hack, unblocked game site, idle breakout, idle breakout hack, idle breakout save, idle breakout code, idle breakout save generator, idle breakout unblocked, 2048, 2048 unblocked, 2048 no ads, no ads, ads, 2048 high score, cookie clicker, cookie clicker unblocked, cookie clicker github, cookie clicker no ads, flappy bird, flappy bird 
- no ads, flappy bird unblocked, flash games, flash, bloons, bloons tower defense, bloons td, bloons td 1, bloons td 2, bloons td 3, bloons td 4, bloons td 5, bloons td 6, online, duck life, duck life 1, duck life 2, ducklife 3, factory balls, learn to fly, learn to fly game, raft wars, the impossible quiz, this is the only level, impossible quiz, impossible quiz online, impossible quiz answers, impossible quiz question, imposible quiz, quiz, quiz answers, hextris, retrobowl, retrobowl unblocked, retrobowl online, rooftop snipers, rooftop snipers unblocked, slope, slope online, slope unblocked, slope unblocked site, slope unblocked no 
- ads, slope unblocked google site, slope unblocked online, slope unblocked school, smart ball, tunnel rush, tunnel rush online, tunnel rush unblocked, tunnel rush unblocked site, tunnel rush unblocked no ads, tunnel rush unblocked google site, slope google site, tunnel rush google site, tunnel rush unblocked online, tunnel rush unblocked school" />
-  <meta name="og:image" content="favicon.png" />
-  <link href="js/loading.js" rel="preload" as="script" />
-  <link href="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" rel="preload" as="script" />
-  <link href="css/loading.css" rel="preload" as="style" type="text/css" />
-  <link href="js/config.js" rel="prefetch" as="script" />
-  <link href="fonts/Flexi_IBM_VGA_True_437.woff" rel="prefetch" as="font" />
-  
- <link href="fonts/Flexi_IBM_VGA_True_437.woff2" rel="prefetch" as="font" />
-  <link href="css/loading.css" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  
+  <meta name="description" content="Simple unblocked games site" />
+  <meta name="keywords" content="games, unblocked games" />
   <style>
-    body {
-      background-color: #000000 !important;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
-    #particles {
-      display: none !important;
+    
+    body {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+    }
+    
+    #title {
+      text-align: center;
+      padding: 20px;
+      font-size: 2.5em;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(45deg, #5ebd3e, #ffb900, #f78200, #e23838);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    #title:hover {
+      opacity: 0.8;
+    }
+    
+    .homepage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 70vh;
+    }
+    
+    .card-row {
+      display: flex;
+      gap: 30px;
+      padding: 20px;
+    }
+    
+    .column {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+    }
+    
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    .card {
+      background: #2b2b2b;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      height: 100%;
+      border: 2px solid #373737;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      background: #373737;
+      border-color: #5ebd3e;
+    }
+    
+    .card h5 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    .card p {
+      color: #aaa;
+      font-size: 0.9em;
+    }
+    
+    .games, .settings, .proxy {
+      display: none;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .searchbar {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .searchbar input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background: #2b2b2b;
+      color: #fff;
+    }
+    
+    .searchbar select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background: #2b2b2b;
+      color: #fff;
+    }
+    
+    .randgame {
+      padding: 10px 20px;
+      background: #5ebd3e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .randgame:hover {
+      background: #4a9c30;
+    }
+    
+    #gamesList {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      list-style: none;
+    }
+    
+    .game-item {
+      background: #2b2b2b;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: 1px solid #373737;
+    }
+    
+    .game-item:hover {
+      background: #373737;
+      border-color: #5ebd3e;
+    }
+    
+    .setting-bg {
+      background: #2b2b2b;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .setting-bg h4 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 1.8em;
+    }
+    
+    .setting {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #444;
+    }
+    
+    .setting:last-child {
+      border-bottom: none;
+    }
+    
+    .setting h5 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+    
+    .setting p {
+      color: #aaa;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+    
+    .color-input {
+      margin: 5px 0 15px 0;
+      background: transparent;
+      border: none;
+      width: 60px;
+      height: 30px;
+      cursor: pointer;
+    }
+    
+    .save-button {
+      padding: 8px 20px;
+      background: #5ebd3e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      display: inline-block;
+    }
+    
+    .save-button:hover {
+      background: #4a9c30;
+    }
+    
+    .text-field {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background: #1a1a1a;
+      color: #fff;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 10px;
+    }
+    
+    .submit-button {
+      padding: 8px 20px;
+      background: #009cdf;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .submit-button:hover {
+      background: #007bb5;
+    }
+    
+    #page-loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+    
+    #page-loader iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .in-game-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #e23838;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .in-game-button:hover {
+      background: #c42c2c;
     }
   </style>
-  
 </head>
 
 <body>
-  <noscript>
-    <p id="noscript-text">This site requires you to be able to run JavaScript.</p>
-  </noscript>
-  <div class="loading">
-    <div>
-      <div class="loading-tip"></div>
-      <div class="loading-infinity">
-        <br />
-        <svg class="infinity" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-    
-         <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#5ebd3e" />
-              <stop offset="33%" stop-color="#ffb900" />
-              <stop offset="67%" stop-color="#f78200" />
-              <stop offset="100%" stop-color="#e23838" />
-            </linearGradient>
-       
-      <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
-              <stop offset="0%" stop-color="#e23838" />
-              <stop offset="33%" stop-color="#973999" />
-              <stop offset="67%" stop-color="#009cdf" />
-              <stop offset="100%" stop-color="#5ebd3e" />
-            </linearGradient>
-          
- </defs>
-          <g fill="none" stroke-linecap="round" stroke-width="16">
-            <g class="track" stroke="rgba(0,0,0,0)">
-              <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
-              <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
-            </g>
-            <g stroke-dasharray="180 656">
-              <path 
- class="worm1" stroke="url('#grad1')" stroke-dashoffset="0"
-                d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56" />
-              <path class="worm2" stroke="url('#grad2')" stroke-dashoffset="358"
-                d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64" />
-            </g>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <div class="loading-icon">
+  <h1 id="title">Unblocked SS</h1>
   
-     </div>
+  <div class="homepage">
+    <div class="card-row">
+      <div class="column">
+        <button onclick="showGames()">
+          <div class="card">
+            <h5>Games</h5>
+            <p>Play unblocked games</p>
+          </div>
+        </button>
+      </div>
+      <div class="column">
+        <button onclick="showProxy()">
+          <div class="card">
+            <h5>Proxy</h5>
+            <p>Browse without restrictions</p>
+          </div>
+        </button>
+      </div>
+      <div class="column">
+        <button onclick="showSettings()">
+          <div class="card">
+            <h5>Settings</h5>
+            <p>Customize your experience</p>
+          </div>
+        </button>
+      </div>
+    </div>
   </div>
-  <section id="everything-else">
-    <h1 id="title">Unblocked SS</h1>
-    
-    <h2>Tom Friedel</h2>
-    
-    <logo>
-        <img src="logo.png" alt="Site Logo" style="max-width: 150px; height: auto; margin-bottom: 15px;">
-    </logo>
-    
-    <div id="particles"></div>
-    
-    <dialog id="disabled">
-      <div>This feature has been disabled by whoever is hosting this Unblocked SS instance.</div>
-    </dialog>
-    <div class="cloaklaunch">
-      <h1 class="cloaker">Press Anywhere to cloak</h1>
-      <h3 class="cloaker">(If you want to stop seeing this 
- enable popups)</h3>
-      <span id="disableCloak">Click here if cloak isn't working</button>
+  
+  <div class="games">
+    <div class="searchbar">
+      <input type="text" id="search" placeholder="Search For Games..." />
+      <select id="sort">
+        <option value="alphabetical">Alphabetical</option>
+        <option value="reverse">Reverse Alphabetical</option>
+      </select>
+      <button class="randgame" onclick="randomGame()">Random Game</button>
     </div>
-    <div class="homepage">
-      <div class="card-row">
-        <div class="column">
-          <button>
-            <div class="card" data="games">
-              <div>
-                </div>
-              <h5>Games</h5>
-            
-    <p> We have a huge collection of 150+ games for you to try out! Ranging from lesser known titles to the
-                most popular games, we have it all! </p>
-            </div>
-          </button>
-        </div>
-        <div class="column">
-          <button>
-      
-            <div class="card" data="proxy">
-              <div class="img-container">
-                </div>
-              <h5>Proxy</h5>
-              <p> Our proxy will let you bypass network restrictions so you can access sites and 
- even play online
-                browser games without censorship! </p>
-            </div>
-          </button>
-        </div>
-        <div class="column">
-          <button>
-            <div class="card" data="settings">
-              <div 
- class="img-container">
-                </div>
-              <h5>Settings</h5>
-           
-    <p>A ton of customizable settings and features all at your fingertips!</p>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="games">
-      <div class="searchbar">
-        <input type="text" id="search" placeholder="Search For Games..." />
-        <select id="sort">
-          <option value="alphabetical">Alphabetical</option>
- 
-          <option value="reverse">Reverse Alphabetical</option>
-        </select>
-        <button class="randgame" onclick="randomGame()">Random Game</button>
-      </div>
-      <ul id="gamesList"></ul>
-    </div>
-    <div class="settings">
-      <div class="setting-bg">
-        <h4>Settings</h4>
-        <h6>Notice: All changes occur on page refresh</h6>
-        <div class="setting">
-          
- <button class="save-button" id="download">Download Game Data</button>
-          <button class="save-button" id="upload">Upload Game Data</button>
-          <p class="upload-result"></p>
-        </div>
-        <div class="setting">
-          <h5>Cloak and Mask Presets</h5>
-          <p>If the 2 settings are enabled, choose without typing it out</p>
-          <select id="presets">
-          
-  <option value="classroom">Google Classroom</option>
-            <option value="drive">Google Drive</option>
-            <option value="mail">Google Mail</option>
-            <option value="canvas">Canvas</option>
-          </select>
-          <button class="submit-button" onclick="updatePreset()">Submit</button>
-        </div>
-        <div class="setting">
-          <h5>Cloak</h5>
-      
-     <p>Toggles if Cloak (Hides site from history and being view online) is forced</p>
-          <label class="switch">
-            <input id="cloakCheckboxInput" type="checkbox" hidden />
-            <div class="switch__wrapper">
-              <div class="switch__toggle"></div>
-            </div>
-          </label>
-       
+    <ul id="gamesList">
+      <!-- Games will be loaded here -->
+    </ul>
   </div>
-        <div class="setting">
-          <h5>Cloak URL</h5>
-          <p>This site will appear in your history instead of Unblocked SS.</p>
-          <input id="cloakUrlInput" class="text-field" type="text" placeholder="https://classroom.google.com" />
-          <button id="cloakUrlSubmit" class="submit-button">Submit</button>
-        </div>
-        <div class="setting">
-          <h5>Mask</h5>
-      
-     <p>Toggles if mask is applied on loading of a page automatically</p>
-          <label class="switch">
-            <input id="maskCheckboxInput" type="checkbox" hidden />
-            <div class="switch__wrapper">
-              <div class="switch__toggle"></div>
-            </div>
-          </label>
-        </div>
- 
-        <div class="setting">
-          <h5>Mask Title</h5>
-          <p>This site's title will replace Unblocked SS's title in your browser tab.</p>
-          <input id="maskTitleInput" class="text-field" type="text" placeholder="Home" />
-          <button id="maskTitleSubmit" class="submit-button">Submit</button>
-        </div>
-        <div class="setting">
-          <h5>Mask Icon URL</h5>
-     
-          <p> This site's icon will replace Unblocked SS's icon in your browser tab.
- (Don't forget https://) </p>
-          <input id="maskIconInput" class="text-field" type="text"
-            placeholder="https://ssl.gstatic.com/classroom/ic_product_classroom_32.png" />
-          <button id="maskIconSubmit" class="submit-button">Submit</button>
-        </div>
-        <div class="setting">
-          <h5>Shortcuts</h5>
-          <p> Shortcuts will help some people navigate the site easier.
- DISCLAIMER!! Certain shortcuts such as CTRL+R
-            and CTRL+W cannot be overriden manually.
- </p>
-        </div>
-        <div class="setting">
-          <div id="keybind-1">
-            <h5>Slot 1</h5>
-            <p>Press a button then press a key on your keyboard to choose</p>
-           
-  <button class="keySlot 1">Set Key</button>
-            <p style="display: inline;">+</p>
-            <button class="keySlot 2">Set Key</button>
-            <p style="display: inline;">+</p>
-            <button class="keySlot 3">Set Key (Optional)</button>
-            <p style="display: inline;">=</p>
-            <select class="slot-action">
-          
-     <option value="makecloak()">Cloak</option>
-              <option value="mask()">Mask</option>
-              <option value="returnHome()">Return to Home</option>
-              <option value="mute()">Mute</option>
-              <option value="#">Pop-up Tab</option>
-              <option value="eval(prompt('What do you want to run?')); pressedKeys = {};">Custom JS</option>
-        
-        <option value="#">Select an option ▼</option>
-            </select>
-          </div>
-          <div id="keybind-2">
-            <h5>Slot 2</h5>
-            <p>Press a button then press a key on your keyboard to choose</p>
-            <button class="keySlot 1">Set Key</button>
-      
-        <p style="display: inline;">+</p>
-            <button class="keySlot 2">Set Key</button>
-            <p style="display: inline;">+</p>
-            <button class="keySlot 3">Set Key (Optional)</button>
-            <p style="display: inline;">=</p>
-            <select class="slot-action">
-              <option value="makecloak()">Cloak</option>
-     
-          <option value="mask()">Mask</option>
-              <option value="returnHome()">Return to Home</option>
-              <option value="mute()">Mute</option>
-              <option value="#">Pop-up Tab</option>
-              <option value="eval(prompt('What do you want to run?'));
- pressedKeys = {};">Custom JS</option>
-              <option value="#">Select an option ▼</option>
-            </select>
-          </div>
-          <div id="keybind-3">
-            <h5>Slot 3</h5>
-            <p>Press a button then press a key on your keyboard to choose</p>
-          
-  <button class="keySlot 1">Set Key</button>
-            <p style="display: inline;">+</p>
-            <button class="keySlot 2">Set Key</button>
-            <p style="display: inline;">+</p>
-            <button class="keySlot 3">Set Key (Optional)</button>
-            <p style="display: inline;">=</p>
-            <select class="slot-action">
-         
-           <option value="makecloak()">Cloak</option>
-              <option value="mask()">Mask</option>
-              <option value="returnHome()">Return to Home</option>
-              <option value="mute()">Mute</option>
-              <option value="#">Pop-up Tab</option>
-              <option value="eval(prompt('What do you want to run?'));
- pressedKeys = {};">Custom JS</option>
-              <option value="#">Select an option ▼</option>
-            </select>
-          </div>
-        </div>
-        <div class="setting">
-          <h5>Background</h5>
-          <p>Background can cause a lot of lag. Disable if your computer is diagnosed with low FPS.</p>
-     
-          <label class="switch">
-            <input type="checkbox" id="backgroundCheckboxInput" hidden />
-            <div class="switch__wrapper">
-              <div class="switch__toggle"></div>
-            </div>
-          </label>
-        </div>
-        <h4>Appearance</h4>
-        <div class="setting">
-   
-          <h5>Custom Theme (change on refresh)</h5>
-          <label for="bg">Background Color:</label>
-          <input type="color" id="bg" name="bg" value="#202020" class="color-input" />
-          <br />
-          <label for="block-color">Block Color:</label>
-          <input type="color" id="block-color" name="block-color" value="#2b2b2b" class="color-input" />
-          <br />
-          <label 
- for="button-color">Button Color:</label>
-          <input type="color" id="button-color" name="button-color" value="#373737" class="color-input" />
-          <br />
-          <label for="games-color">Games Color:</label>
-          <input type="color" id="games-color" name="games-color" value="#373737a6" class="color-input" />
-          <br />
-          <label for="hover-color">Hover Color:</label>
-          <input type="color" id="hover-color" name="hover-color" value="#3c3c3c" class="color-input" />
-     
-          <br />
-          <label for="scrollbar-color">Scrollbar Color:</label>
-          <input type="color" id="scrollbar-color" name="scrollbar-color" value="#434343" class="color-input" />
-          <br />
-          <label for="scroll-track-color">Scroll Track Color:</label>
-          <input type="color" id="scroll-track-color" name="scroll-track-color" value="#111" class="color-input" />
-          <br />
-          <label for="font-color">Font Color:</label>
-   
-          <input type="color" id="font-color" name="font-color" value="#dcddde" class="color-input" />
-          <br />
-          <button class="save-button" onclick="restoreColorChanges()">Restore Defaults</button>
-          <button class="save-button" onClick="saveColorChanges()">Save Changes</button>
-        </div>
+  
+  <div class="proxy">
+    <div class="setting-bg">
+      <h4>Proxy</h4>
+      <div class="setting">
+        <p>Enter a URL to browse through our proxy:</p>
+        <input type="text" id="proxyUrl" class="text-field" placeholder="https://example.com" />
+        <button class="submit-button" onclick="loadProxy()">Browse</button>
       </div>
     </div>
-  </section>
+  </div>
+  
+  <div class="settings">
+    <div class="setting-bg">
+      <h4>Settings</h4>
+      <div class="setting">
+        <h5>Appearance</h5>
+        <p>Customize the look of the site:</p>
+        <label for="bg">Background Color:</label>
+        <input type="color" id="bg" name="bg" value="#000000" class="color-input" />
+        <br />
+        <label for="block-color">Block Color:</label>
+        <input type="color" id="block-color" name="block-color" value="#2b2b2b" class="color-input" />
+        <br />
+        <button class="save-button" onclick="restoreColorChanges()">Restore Defaults</button>
+        <button class="save-button" onClick="saveColorChanges()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  
   <section id="page-loader">
     <iframe></iframe>
-    <button id="gameButton" class="in-game-button">
-      </button>
-    <button id="refresh" class="in-game-button">
- 
-      </button>
+    <button id="gameButton" class="in-game-button" onclick="returnHome()">Home</button>
+    <button id="refresh" class="in-game-button" onclick="refreshGame()">Refresh</button>
   </section>
-  <script src="js/config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-  <script src="js/loading.js" defer></script>
-  <script src="js/bg.js" defer></script>
-  <script src="js/index.js" defer></script>
-</body>
 
+  <script>
+    // Sample games data
+    const games = [
+      { name: "Slope", url: "https://slope-game.online/" },
+      { name: "Tunnel Rush", url: "https://tunnelrush.online/" },
+      { name: "2048", url: "https://play2048.co/" },
+      { name: "Cookie Clicker", url: "https://orteil.dashnet.org/cookieclicker/" },
+      { name: "Run 3", url: "https://www.coolmathgames.com/0-run-3" },
+      { name: "Dino Game", url: "chrome://dino" },
+      { name: "Flappy Bird", url: "https://flappybird.io/" },
+      { name: "Tetris", url: "https://tetris.com/play-tetris" },
+      { name: "Minecraft", url: "https://classic.minecraft.net/" },
+      { name: "Pacman", url: "https://www.google.com/logos/2010/pacman10-i.html" },
+      { name: "Snake", url: "https://playsnake.org/" },
+      { name: "Sudoku", url: "https://sudoku.com/" },
+      { name: "Chess", url: "https://www.chess.com/play/computer" },
+      { name: "Checkers", url: "https://www.checkers.online/" },
+      { name: "Solitaire", url: "https://www.solitaire.org/" }
+    ];
+
+    // DOM elements
+    const title = document.getElementById('title');
+    const homepage = document.querySelector('.homepage');
+    const gamesSection = document.querySelector('.games');
+    const proxySection = document.querySelector('.proxy');
+    const settingsSection = document.querySelector('.settings');
+    const pageLoader = document.getElementById('page-loader');
+    const gamesList = document.getElementById('gamesList');
+    const searchInput = document.getElementById('search');
+    const sortSelect = document.getElementById('sort');
+    
+    // Title click event - returns to homepage
+    title.addEventListener('click', () => {
+      showHomepage();
+    });
+    
+    // Show homepage
+    function showHomepage() {
+      homepage.style.display = 'flex';
+      gamesSection.style.display = 'none';
+      proxySection.style.display = 'none';
+      settingsSection.style.display = 'none';
+      pageLoader.style.display = 'none';
+    }
+    
+    // Show games section
+    function showGames() {
+      homepage.style.display = 'none';
+      gamesSection.style.display = 'block';
+      proxySection.style.display = 'none';
+      settingsSection.style.display = 'none';
+      pageLoader.style.display = 'none';
+      loadGames();
+    }
+    
+    // Show proxy section
+    function showProxy() {
+      homepage.style.display = 'none';
+      gamesSection.style.display = 'none';
+      proxySection.style.display = 'block';
+      settingsSection.style.display = 'none';
+      pageLoader.style.display = 'none';
+    }
+    
+    // Show settings section
+    function showSettings() {
+      homepage.style.display = 'none';
+      gamesSection.style.display = 'none';
+      proxySection.style.display = 'none';
+      settingsSection.style.display = 'block';
+      pageLoader.style.display = 'none';
+    }
+    
+    // Load and display games
+    function loadGames() {
+      gamesList.innerHTML = '';
+      let filteredGames = [...games];
+      
+      // Search filter
+      const searchTerm = searchInput.value.toLowerCase();
+      if (searchTerm) {
+        filteredGames = filteredGames.filter(game => 
+          game.name.toLowerCase().includes(searchTerm)
+        );
+      }
+      
+      // Sort
+      if (sortSelect.value === 'alphabetical') {
+        filteredGames.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortSelect.value === 'reverse') {
+        filteredGames.sort((a, b) => b.name.localeCompare(a.name));
+      }
+      
+      // Create game items
+      filteredGames.forEach(game => {
+        const li = document.createElement('li');
+        li.className = 'game-item';
+        li.textContent = game.name;
+        li.addEventListener('click', () => loadGame(game.url));
+        gamesList.appendChild(li);
+      });
+    }
+    
+    // Load a game
+    function loadGame(url) {
+      const iframe = document.querySelector('#page-loader iframe');
+      iframe.src = url;
+      homepage.style.display = 'none';
+      gamesSection.style.display = 'none';
+      proxySection.style.display = 'none';
+      settingsSection.style.display = 'none';
+      pageLoader.style.display = 'block';
+    }
+    
+    // Load proxy
+    function loadProxy() {
+      const url = document.getElementById('proxyUrl').value;
+      if (url) {
+        loadGame(url);
+      }
+    }
+    
+    // Random game
+    function randomGame() {
+      const randomIndex = Math.floor(Math.random() * games.length);
+      loadGame(games[randomIndex].url);
+    }
+    
+    // Return to homepage from game
+    function returnHome() {
+      showHomepage();
+      const iframe = document.querySelector('#page-loader iframe');
+      iframe.src = '';
+    }
+    
+    // Refresh game
+    function refreshGame() {
+      const iframe = document.querySelector('#page-loader iframe');
+      iframe.src = iframe.src;
+    }
+    
+    // Color settings
+    function saveColorChanges() {
+      const bgColor = document.getElementById('bg').value;
+      const blockColor = document.getElementById('block-color').value;
+      
+      document.body.style.backgroundColor = bgColor;
+      document.querySelectorAll('.card, .setting-bg, .game-item').forEach(el => {
+        el.style.backgroundColor = blockColor;
+      });
+      
+      localStorage.setItem('bgColor', bgColor);
+      localStorage.setItem('blockColor', blockColor);
+      alert('Settings saved!');
+    }
+    
+    function restoreColorChanges() {
+      document.body.style.backgroundColor = '#000000';
+      document.querySelectorAll('.card, .setting-bg, .game-item').forEach(el => {
+        el.style.backgroundColor = '#2b2b2b';
+      });
+      
+      document.getElementById('bg').value = '#000000';
+      document.getElementById('block-color').value = '#2b2b2b';
+      
+      localStorage.removeItem('bgColor');
+      localStorage.removeItem('blockColor');
+      alert('Defaults restored!');
+    }
+    
+    // Load saved colors
+    function loadSavedColors() {
+      const savedBg = localStorage.getItem('bgColor');
+      const savedBlock = localStorage.getItem('blockColor');
+      
+      if (savedBg) {
+        document.body.style.backgroundColor = savedBg;
+        document.getElementById('bg').value = savedBg;
+      }
+      
+      if (savedBlock) {
+        document.querySelectorAll('.card, .setting-bg, .game-item').forEach(el => {
+          el.style.backgroundColor = savedBlock;
+        });
+        document.getElementById('block-color').value = savedBlock;
+      }
+    }
+    
+    // Event listeners
+    searchInput.addEventListener('input', loadGames);
+    sortSelect.addEventListener('change', loadGames);
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSavedColors();
+      showHomepage();
+      loadGames();
+    });
+  </script>
+</body>
 </html>
